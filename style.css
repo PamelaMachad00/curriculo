@@ -1,0 +1,243 @@
+/* ---------- tokens ---------- */
+:root {
+  --paper: #f6f5f1;
+  --ink: #1b1f23;
+  --ink-soft: #5a5f63;
+  --accent: #2f6f63;
+  --accent-soft: #dfeae6;
+  --line: #d8d6ce;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+/* ---------- reset ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------- layout ---------- */
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 72px 24px 96px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  margin: 0 0 8px;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- header ---------- */
+.header {
+  margin-bottom: 56px;
+}
+
+.header h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(32px, 5vw, 44px);
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.role {
+  color: var(--ink-soft);
+  font-size: 17px;
+  margin: 0 0 24px;
+}
+
+.contact {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.contact li {
+  display: flex;
+  align-items: center;
+}
+
+.contact li:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--line);
+  margin-left: 14px;
+}
+
+.contact a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.contact a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- sections ---------- */
+.block {
+  padding-top: 36px;
+  margin-top: 36px;
+  border-top: 1px solid var(--line);
+}
+
+.block h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 24px;
+  margin: 0 0 16px;
+}
+
+.block > p {
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+/* ---------- tags (habilidades) ---------- */
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.tags li {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+/* ---------- timeline (formação / portfólio) ---------- */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline li {
+  position: relative;
+  padding-left: 28px;
+  padding-bottom: 28px;
+}
+
+.timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  bottom: -22px;
+  width: 1px;
+  background: var(--line);
+}
+
+.timeline li:last-child::before {
+  display: none;
+}
+
+.dot {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline-period {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  margin: 0 0 4px;
+}
+
+.timeline-title {
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+
+.timeline-place {
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.timeline-content p {
+  color: var(--ink-soft);
+  margin: 6px 0 0;
+}
+
+.timeline-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+}
+
+/* ---------- footer ---------- */
+.footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ---------- print ---------- */
+@media print {
+  body {
+    background: #fff;
+  }
+  .page {
+    padding: 0;
+    max-width: none;
+  }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 480px) {
+  .page {
+    padding: 48px 20px 64px;
+  }
+}
